@@ -1,6 +1,6 @@
 __author__ = 'mcrxx'
 
-import requests, optparse
+import requests, optparse, time
 from os import listdir
 from os.path import isfile
 
@@ -20,8 +20,10 @@ def send_request(file, challenge_id, key):
     multipart = {'input': open(file,'rb')}
     data = {'challenge_id': challenge_id, 'auth_token': key}
     r = requests.post(url, data=data, files = multipart)
+    print file
     print r.status_code
     print r.text
+    time.sleep(1)
 
 def print_help(parser):
     parser.print_help()
