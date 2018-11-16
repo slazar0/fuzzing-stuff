@@ -43,7 +43,7 @@ def get_constants(input_file, output):
 def get_strings(input_file, output):
     f = open('dict.txt', 'w+')
     for s in strings(input_file):
-        f.write(s.rstrip() + "\n")
+        f.write('"' + s.rstrip()+ '"' + '\n')
     f.close()
 
 def strings(filename, min=4):
