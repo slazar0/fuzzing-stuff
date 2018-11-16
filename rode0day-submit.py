@@ -3,11 +3,12 @@ __author__ = 'mcrxx'
 import requests, optparse, time
 from os import listdir
 from os.path import isfile
+from os.path import isdir
 
 def main(file=None, dir=None, challenge_id=None, key=None):
     if file is not None and isfile(file):
         send_request(file, challenge_id, key)
-    else:
+    elif dir is not None and isdir(dir):
         if not dir.endswith('/'):
             dir = dir + '/'
         directory_list = listdir(dir)
