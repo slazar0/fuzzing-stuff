@@ -35,13 +35,13 @@ def get_constants(input_file, output):
 
     #When loop ends
     for item in array:
-        f = open(output + item,'w+')
+        f = open(output + item,'wb+')
         value =  "".join(struct.pack("<I" if len(item) <= 11 else "<Q", int(item,0)))
         f.write(value)
         f.close()
 
 def get_strings(input_file, output):
-    f = open('dict.txt', 'w+')
+    f = open(output + 'dict.txt', 'w+')
     for s in strings(input_file):
         f.write('"' + s.rstrip()+ '"' + '\n')
     f.close()
